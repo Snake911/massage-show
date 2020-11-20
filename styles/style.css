@@ -1,23 +1,78 @@
 @import url("./normalize.css");
 @import url("./fonts.css");
 :root {
+    --color-black: #212121;
+    --color-white: #fff;
+    --color-gold: #dcc264;
     --color-text-gradient: linear-gradient(170deg, #E7DC79 0%, #B66D1E 100%);
+    --opacity-background: rgba(33, 33, 33, .85);
     font-family: 'Gilroy', sans-serif;
     font-size: 16px;
+}
+
+h1 {
+    font-family: Gilroy, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: var(--color-white);
+}
+
+h2 {
+    font-family: Gilroy, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.875;
 }
 
 header {
     background-color: #000;
 }
 
-h2 {
+.topLine {
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 15px 0;
+}
+
+.topLine img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.mainLine {
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 40px;
+}
+
+.mainLine a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.mainLine .logo {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.125rem;
     background: var(--color-text-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: #0B2349;
+    color: var(--color-gold);
     display: inline-block;
-    font-size: 3.125rem;
+}
+
+.mainMenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .limiter {
