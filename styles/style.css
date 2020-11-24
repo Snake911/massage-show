@@ -38,7 +38,8 @@ h3 {
     font-size: 1.25rem;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
@@ -55,7 +56,9 @@ section {
     height: 100%;
 }
 
+
 /* Owl */
+
 .owl-nav {
     display: grid;
     grid-template-columns: repeat(2, 30px);
@@ -92,9 +95,25 @@ section {
     transform: translate(-35%, -50%) rotateZ(135deg);
 }
 
+.arrow-owl_black {
+    background-color: var(--color-black);
+    border-color: var(--color-white);
+}
+
+.arrow-owl_black::before {
+    border-color: var(--color-white);
+}
+
+.arrow-owl.arrow-right::before {
+    transform: translate(-60%, -50%) rotateZ(-45deg);
+}
+
+
 /* /Owl */
 
+
 /* Top */
+
 header {
     background-color: #000;
 }
@@ -144,9 +163,13 @@ header {
     align-items: center;
     justify-content: space-between;
 }
+
+
 /* /Top */
 
+
 /* Main-banner */
+
 .main-banner {
     width: 100%;
     height: 700px;
@@ -164,7 +187,7 @@ header {
     background-color: var(--opacity-background);
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);    
+    transform: translateY(-50%);
 }
 
 .main-banner_phone {
@@ -179,7 +202,7 @@ header {
     align-items: center;
 }
 
-.main-banner_phone::before, 
+.main-banner_phone::before,
 .main-banner_address::before {
     content: "";
     display: inline-block;
@@ -208,9 +231,12 @@ header {
     color: var(--color-white);
 }
 
+
 /* /Main-banner */
 
+
 /* Girls */
+
 .slider-girls_item {
     position: relative;
 }
@@ -250,18 +276,12 @@ header {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.slider-girls .arrow-right {
-    background-color: var(--color-black);
-}
-
-.slider-girls .arrow-right::before {
-    border-color: var(--color-white);
-    transform: translate(-60%, -50%) rotateZ(-45deg);
-}
 
 /* /Girls */
 
+
 /* Programs */
+
 #programs {
     background-color: var(--color-black);
     color: var(--color-white);
@@ -330,6 +350,8 @@ header {
 .item-info_table-row li {
     padding: 10px 20px;
     border-right: 1px solid var(--color-gold);
+    min-width: 100px;
+    text-align: center;
 }
 
 .item-info_table-row li:first-child {
@@ -341,4 +363,40 @@ header {
     border-right: 0;
 }
 
+
 /* /Programs */
+
+
+/* Promotion */
+
+.slider-promotions_item {
+    position: relative;
+}
+
+.slider-promotions .slider-promotions_item .promotions_item-cover {
+    width: 75%;
+    height: 480px;
+    margin-left: auto;
+}
+
+.promotions_item-info {
+    background: var(--opacity-background);
+    color: var(--color-white);
+    position: absolute;
+    bottom: 120px;
+    max-width: 540px;
+    min-height: 300px;
+    padding: 60px;
+}
+
+.promotions_item-info h3 {
+    margin-bottom: 20px;
+}
+
+.slider-promotions .owl-nav {
+    position: absolute;
+    bottom: 50px;
+}
+
+
+/* /Promotion */
