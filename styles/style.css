@@ -57,6 +57,20 @@ section {
     height: 100%;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: var(--opacity-background);
+    z-index: 1000;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
 
 /* Owl */
 
@@ -168,6 +182,9 @@ header {
     justify-content: space-between;
 }
 
+.burger {
+    display: none;
+}
 
 /* /Top */
 
@@ -253,8 +270,9 @@ header {
 .slider-girls_item-info {
     position: absolute;
     top: 0;
-    width: 350px;
-    height: 480px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: var(--opacity-background);
     color: var(--color-white);
     padding: 40px;
@@ -292,6 +310,18 @@ header {
 
 .slider-programs_item {
     max-width: 540px;
+    margin: auto;
+    position: relative;
+}
+
+.slider-programs_item-mark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--color-text-gradient);
+    z-index: 1;
+    color: var(--color-black);
+    padding: 5px 30px;
 }
 
 .slider-programs_item-cover {
@@ -324,7 +354,7 @@ header {
     cursor: pointer;
 }
 
-.programs_item-more a {
+.slider-programs_item a {
     color: var(--color-white);
     text-decoration: none;
 }
@@ -379,6 +409,7 @@ header {
 .slider-promotions .slider-promotions_item .promotions_item-cover {
     width: 75%;
     height: 480px;
+    object-fit: cover;
     margin-left: auto;
 }
 
@@ -408,12 +439,13 @@ header {
 /* Advantages */
 
 #advantages ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-gap: 30px;
 }
 
 #advantages li {
+    justify-self: center;
     width: 160px;
     height: 160px;
     display: flex;
@@ -491,3 +523,278 @@ section#map {
 
 
 /* /Map */
+
+/* Footer */
+footer {
+    background-color: var(--color-black);
+    padding: 40px 0;
+}
+footer .logo {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.125rem;
+    background: var(--color-text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--color-gold);
+    display: inline-block;
+}
+
+.footerTopLine {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 25px;
+}
+
+.footerMenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footerMenu a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.footerBottomLine {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    color: var(--color-white);
+    align-items: center;
+}
+
+.footer-phone, .footer-address {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.footer-phone::before, .footer-address::before {
+    content: "";
+    background-image: url("/images/phone.png");
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+.footer-address::before {
+    background-image: url("/images/place.png");
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* /Footer */
+
+@media (max-width: 1200px) {
+    .limiter {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 960px) {
+    /* Top */
+    .mainMenu {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        right: -50%;
+        background-color: var(--color-black);
+        top: 0;
+        bottom: 0;
+        padding: 20px 30px;
+        line-height: 40px;
+        width: 50%;
+        transition: right .7s ease-in-out;
+    }
+
+    .burger-menu.opened {
+        right: 0;
+    }
+
+    .burger-icon, 
+    .burger-icon::before,
+    .burger-icon::after {
+        content: "";
+        margin-left: auto;
+        border-bottom: 3px solid var(--color-gold);
+        border-radius: 3px;
+        width: 50px;
+        height: 3px;
+        display: block;
+    }
+
+    .burger-icon::before {
+        position: relative;
+        top: 15px;
+    }
+
+    .burger-icon::after {
+        position: relative;
+        top: 0px;
+    }
+
+    .burger-close {
+        color: var(--color-white);
+        font-weight: bold;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid;
+        border-radius: 50%;
+        margin-left: auto;
+    }
+
+    .burger-menu_bottom {
+        color: var(--color-white);
+    }
+
+    .burger-menu_bottom>div {
+        margin-top: 15px;
+    }
+
+    .burger-menu_bottom>div:first-child {
+        margin-top: 0;
+    }
+
+    .burger-menu_bottom .footer-slogan {
+        line-height: 1.5;
+    }    
+    /* /Top */ 
+
+    /* Owl */
+    .owl-nav {
+        grid-gap: 40px;
+    }
+    /* /Owl */
+
+    /* Main Banner */
+    h1 {
+        font-size: 2.15rem;
+    }
+
+    .main-banner_info {
+        width: 100%;
+        position: static;
+        transform: unset;
+    }
+
+    .main-banner_phone {
+        font-size: 2.15rem;
+    }
+    .main-banner_address {
+        font-size: 1.4rem;
+    }
+    /* /Main Banner */
+
+    /* Programs */
+    .programs_item-info_table {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .item-info_table-row {
+        display: flex;
+        flex-direction: column;
+    }
+    .item-info_table-row ul{
+        flex-direction: column;
+        width: 100%;
+    }
+    .item-info_table-row li {
+        border-right: 0;
+        border-bottom: 1px solid var(--color-gold);
+        padding: 20px 0;
+    }
+    /* /Programs */
+
+    /* Promotions */
+    #promotions .limiter {
+        padding: 0;
+    }
+    #promotions h2 {
+        padding-left: 15px;
+    }
+    .slider-promotions .slider-promotions_item .promotions_item-cover {
+        width: 100%;
+    }
+    .promotions_item-info {
+        padding: 20px 30px;
+        top: 40px;
+        /* bottom: 0; */
+        left: 15px;
+        max-width: 80%;
+    }
+    .slider-promotions .owl-nav {
+        left: 15px;
+    }
+    /* / Promotions */
+
+    /* Vacansies */
+    .vacansies-cover {
+        width: 100%;
+        position: relative;
+    }
+
+    .vacansies-info {
+        top: 0;
+        bottom: 100px;
+        left: 15px;
+        height: auto;
+        padding: 70px 20px;
+    }
+
+    .vacansies-info p {
+        width: 100%;
+    }
+    /* /Vacansies */
+
+    /* Footer */
+    footer {
+        display: none;
+    }
+    /* /Footer */
+}
+
+@media (max-width: 680px) {
+    .limiter {
+        padding: 0 15px;
+    }
+    /* Top */
+    .burger-menu {
+        width: 75%;
+        right: -75%;
+    }
+    /* /Top */
+    /* Main Banner*/
+    .main-banner_info {
+        padding: 60px 20px;
+    }
+
+    .main-banner_phone::before, .main-banner_address::before {
+        display: none;
+    }
+    /* /Main Banner*/
+}

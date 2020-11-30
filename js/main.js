@@ -31,7 +31,8 @@ $('.slider-programs').owlCarousel({
     ],
     responsive: {
         0: {
-            items: 1
+            items: 1,
+            center: true
         },
         1000: {
             items: 2
@@ -52,4 +53,20 @@ $('.slider-promotions').owlCarousel({
             items: 1
         }
     }
+});
+
+// Открытие меню в адаптиве
+$('.burger-icon').click(() => {
+    $('.burger-menu').addClass('opened');
+    $('.overlay').addClass('active');
+});
+
+// Закрытие меню в адаптиве
+$('.burger-close').click(() => {
+    $('.burger-menu').removeClass('opened');
+    $('.overlay').removeClass('active')
+});
+
+$('.overlay').click(() => {
+    $('.burger-close').click();
 });
